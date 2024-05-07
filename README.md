@@ -2,7 +2,7 @@
 
 This is a Python package containing a RAG (Retrieval Augmented Generation) based chatbot for NOMAD documentation. The code can be run completely locally with open-source models.
 
-This implementation uses a form of [self-correction](https://arxiv.org/abs/2310.11511), where the LLM filters out un-relevant context documents and performs a check for hallusinations and usefullness of the answer. If the generated answer does not pass the checks, a hard-coded failure response will be returned.
+This implementation uses a form of [self-correction](https://arxiv.org/abs/2310.11511), where the LLM filters out un-relevant context documents and performs a check for hallucination and usefulness of the answer. If the generated answer does not pass the checks, a hard-coded failure response will be returned.
 
 By default, the LLM model and embedding run on the local GPU. The default Llama 3 8B model requires roughly 3GB of GPU RAM. On a laptop with `GeForce GTX 1650 Mobile` answering a question takes roughly 1 minute (a single query with default settings can contain up to 7 LLM calls due to self-correction).
 

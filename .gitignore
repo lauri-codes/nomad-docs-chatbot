@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # Embedding source documents
-src/nomad_nlp_engine/data/docs
+src/nomad_docs_chatbot/data/docs
