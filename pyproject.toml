@@ -3,11 +3,9 @@ requires = ["setuptools<69.3.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = 'nomad-nlp-engine'
-description = 'NLP engine for creating NOMAD queries.'
-authors = [
-    { name = "NOMAD Laboratory", email = 'markus.scheidgen@physik.hu-berlin.de' },
-]
+name = 'nomad-docs-chatbot'
+description = 'RAG-based chatbot for NOMAD documentation.'
+authors = [{name = "Lauri Himanen"}]
 dynamic = ["version"]
 license = { text = "Apache-2.0" }
 requires-python = ">=3.9"
@@ -25,13 +23,12 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://nomad-lab.eu/"
-documentation = "https://nomad-lab.eu/prod/v1/docs"
-repository = 'https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR'
+repository = 'https://github.com/lauri-codes/nomad-docs-chatbot'
 
 [project.optional-dependencies]
 dev = [
-    'pytest'
+    'ruff',
+    'pytest',
 ]
 
 [tool.ruff]
