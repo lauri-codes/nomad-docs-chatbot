@@ -128,7 +128,7 @@ class RAG():
             """
             self.logger.info("---RETRIEVE---")
             question = state["question"]
-            documents = self.retriever.invoke(question)[0:self.k]
+            documents = self.retriever.invoke(question)
 
             return {"documents": documents, "question": question}
 
@@ -235,10 +235,10 @@ class RAG():
 
         # Build graph
         workflow = StateGraph(GraphState)
-        workflow.add_node("retrieve", retrieve)  # retrieve
-        workflow.add_node("grade_documents", grade_documents)  # grade documents
-        workflow.add_node("generate", generate)  # generate
-        workflow.add_node("failure", failure)  # 
+        workflow.add_node("retrieve", retrieve)
+        workflow.add_node("grade_documents", grade_documents)
+        workflow.add_node("generate", generate)
+        workflow.add_node("failure", failure)
 
         workflow.set_entry_point('retrieve')
         workflow.add_edge("retrieve", "grade_documents")

@@ -20,7 +20,8 @@ def create_embeddings(embedding):
     docs = [UnstructuredMarkdownLoader(str(path)).load() for path in paths]
     docs_list = [item for sublist in docs for item in sublist]
     splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-        chunk_size=250, chunk_overlap=0
+        chunk_size=250,
+        chunk_overlap=0
     )
     doc_splits = splitter.split_documents(docs_list)
     collection_name, embedding_model = get_embedding_model(embedding)
@@ -49,7 +50,7 @@ def get_retriever(embedding, k):
         collection_name=collection_name,
         persist_directory=str(persist_directory),
         embedding_function=embedding_model
-    ).as_retriever(k=k)
+    ).as_retriever(search_kwargs={"k": k})
 
 
 if __name__ == "__main__":
